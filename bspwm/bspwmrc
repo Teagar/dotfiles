@@ -54,4 +54,11 @@ bspc config focus_follows_pointer true
 picom &
 bspc config border_width 0.2
 
-xsetroot -cursor_name left_ptr &
+# Fix pipe
+xmodmap -e "keycode 94 = bar backslash"
+
+# Fix brace
+xmodmap -e "keycode 51 = braceright"
+
+# Fix "X" cursor
+xsetroot -cursor_name left_ptr

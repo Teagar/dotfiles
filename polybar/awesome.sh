@@ -1,16 +1,13 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-polybar bspwm &
+polybar awesome &
 
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload bspwm &
+    MONITOR=$m polybar --reload awesome &
   done
 else
- polybar --reload bspwm &
+  polybar --reload awesome &
 fi
-
-
-polybar top -c ~/.config/polybar/config.ini &
