@@ -1,57 +1,110 @@
-#! /bin/sh
+#!/bin/sh
 
-wmname LG3D &
-vmware-user-suid-wrapper &
+### CONSTANTS ###
+LOGFILE="$HOME/.config/bspwm/startup.log"
+WALLPAPER="$HOME/Wallpapers/c.png"
+POLYBAR_SCRIPT="$HOME/.config/polybar/launch.sh"
 
-pgrep -x sxhkd > /dev/null || sxhkd &
+### FUNCTIONS ###
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" >> "$LOGFILE"
+}
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+run_or_warn() {
+    "$@" >> "$LOGFILE" 2>&1
+    if [ $? -ne 0 ]; then
+        log "⚠️ Command failed: $*"
+    fi
+}
 
-CURRENT_BORDER='1'
-CURRENT_GAP='8'
-CURRENT_SRATIO='1.4'
+### START CLEAN ###
+> "$LOGFILE"  # Clear previous log
+log " Starting bspwm environment setup"
 
-BLUE="#00acc1"
-CYAN="#7dcfff"
-BACKGROUND="#f9f5d7"
-MAGENTA="#d3869b"
-GREEN="#43a047"
+### ENVIRONMENT SETUP ###
+log "Setting wmname and vmware wrapper..."
 
+# Check if running in VMware
+if [ -d "/proc/fs/vmblock" ]; then
+    command -v vmware-user-suid-wrapper >/dev/null && run_or_warn vmware-user-suid-wrapper &
+else
+    log "Skipping vmware-user-suid-wrapper; not running inside VMware."
+fi
+
+# Set Java compatibility name if wmname is available
+command -v wmname >/dev/null && run_or_warn wmname LG3D || log "ℹ️ wmname not installed."
+
+### SXHKD ###
+log "Checking sxhkd..."
+pgrep -x sxhkd > /dev/null || run_or_warn sxhkd &
+
+### DESKTOP SETUP ###
+log "Setting desktops..."
+run_or_warn bspc monitor -d I II III IV V VI VII VIII IX X
+
+### CONFIGURATION VARIABLES ###
+BORDER_WIDTH='1'
+WINDOW_GAP='8'
+SPLIT_RATIO='1.4'
+
+COLOR_BLUE="#00acc1"
+COLOR_CYAN="#7dcfff"
+COLOR_BG="#f9f5d7"
+COLOR_MAGENTA="#d3869b"
+COLOR_GREEN="#43a047"
+
+### WINDOW RULES ###
+log "Applying window rules..."
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
+### BSPWM CONFIG ###
+log "Applying bspwm settings..."
+bspc config border_width "$BORDER_WIDTH"
+bspc config window_gap "$WINDOW_GAP"
+bspc config split_ratio "$SPLIT_RATIO"
 
-bspc config border_width "$CURRENT_BORDER"
-bspc config window_gap "$CURRENT_GAP"
-bspc config split_ratio "$CURRENT_SRATIO"
-bspc config focused_border_color "$BLUE" 
-bspc config normal_border_color "$BACKGROUND"
-bspc config active_border_color "$MAGENTA"
-bspc config presel_feedback_color "$CYAN"
+bspc config focused_border_color "$COLOR_BLUE"
+bspc config normal_border_color "$COLOR_BG"
+bspc config active_border_color "$COLOR_MAGENTA"
+bspc config presel_feedback_color "$COLOR_CYAN"
+
 bspc config borderless_monocle true
 bspc config gapless_monocle true
 bspc config paddingless_monocle true
 bspc config single_monocle false
 bspc config focus_follows_pointer true
 
+### WALLPAPER ###
+log "Setting wallpaper..."
+run_or_warn feh --bg-fill "$WALLPAPER"
 
-# WALLPAPER
-feh --bg-fill ~/Wallpapers/a.jpg
+### POLYBAR ###
+log "Launching Polybar..."
+if [ -x "$POLYBAR_SCRIPT" ]; then
+    run_or_warn "$POLYBAR_SCRIPT" &
+else
+    log "⚠️ Polybar launch script not found or not executable."
+fi
 
-# POLYBAR
-~/.config/polybar/launch.sh
+### COMPOSITOR (PICOM) ###
+log "Launching picom..."
+if pgrep -x picom > /dev/null; then
+    log "ℹ️ picom already running, skipping."
+else
+    run_or_warn picom &
+fi
 
-# PICOM
-picom &
-
-# Fix pipe
+### KEYBOARD FIXES ###
+log "Fixing keyboard keys..."
 xmodmap -e "keycode 94 = bar backslash"
-
-# Fix brace
 xmodmap -e "keycode 51 = braceright"
 
-# Fix "X" cursor
+### CURSOR FIX ###
+log "Fixing X cursor..."
 xsetroot -cursor_name left_ptr
+
+log "󰡕 bspwm setup complete."

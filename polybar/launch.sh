@@ -13,4 +13,4 @@ else
 fi
 
 
-polybar top -c ~/.config/polybar/config.ini &
+polybar bspwm -c ~/.config/polybar/config.ini &
