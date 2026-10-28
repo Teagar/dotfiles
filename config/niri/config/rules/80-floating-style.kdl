@@ -1,0 +1,11 @@
+window-rule {
+  match is-floating=true
+  shadow {
+    on
+    spread 0
+    offset x=0 y=-5
+    draw-behind-window false
+    softness 0
+    color "#aaaaaaff"
+  }
+}

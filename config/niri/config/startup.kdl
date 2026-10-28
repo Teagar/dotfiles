@@ -1,0 +1,15 @@
+// spawn-at-startup "waybar"
+// spawn-at-startup "qs" "-c" "noctalia-shell"
+
+spawn-at-startup "/home/gabiru/.local/bin/noctalia-zorin"
+
+//spawn-at-startup "/home/gabiru/.config/niri/scripts/auto-new-workspace.sh"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+animations {
+}

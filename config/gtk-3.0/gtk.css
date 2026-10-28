@@ -1,0 +1,19 @@
+
+
+@import url("noctalia.css");
+
+/* Desabilita alterações visuais quando a janela perde o foco (modo inativo) */
+*:backdrop {
+    opacity: 1;
+}
+
+headerbar:backdrop,
+.titlebar:backdrop,
+window:backdrop,
+windowdecorations:backdrop,
+placessidebar:backdrop,
+scrolledwindow:backdrop,
+entry:backdrop,
+button:backdrop {
+    opacity: 1;
+}

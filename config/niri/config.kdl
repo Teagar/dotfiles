@@ -1,0 +1,18 @@
+prefer-no-csd
+
+xwayland-satellite {
+    path "/home/gabiru/.local/bin/xwayland-satellite"
+}
+
+include "config/environment.kdl"
+include "config/input.kdl"
+include "output/record.kdl" // home | coude | coude2 | gaming | record
+include "extra/wallpaper.kdl"
+include "plugins/noctalia.kdl"
+include "config/layout.kdl"
+include "config/startup.kdl"
+include "config/rules.kdl"
+include "config/debug.kdl"
+include "config/binds.kdl"
+include "config/workspace.kdl"
+spawn-at-startup "gnome-keyring-daemon" "--start" "--components=secrets"

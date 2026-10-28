@@ -1,0 +1,11 @@
+window-rule {
+  match app-id=r#"^(firefox|firefox_firefox)$"# title="^Picture-in-Picture$"
+  open-floating true
+}
+
+window-rule {
+  match app-id=r#"^(firefox|firefox_firefox)$"#
+  open-maximized true
+  open-on-workspace "browser"
+  // block-out-from "screen-capture"
+}

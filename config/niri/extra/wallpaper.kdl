@@ -1,0 +1,16 @@
+layer-rule {
+    match namespace="^noctalia-wallpaper*"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^linux-wallpaperengine$"
+    place-within-backdrop true
+    opacity 1.0
+}
+
+overview {
+    workspace-shadow {
+        off
+    }
+}

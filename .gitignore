@@ -1,0 +1,5 @@
+config/opencode/secrets/
+config/opencode/service.json
+*.save
+*.swp
+*.swo

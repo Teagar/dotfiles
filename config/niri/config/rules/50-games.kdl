@@ -1,0 +1,33 @@
+window-rule {
+  match app-id="^steam_app_"
+  match app-id="steam"
+  match app-id="^org.prismlauncher.PrismLauncher"
+  match app-id="org.vinegarhq.Sober"
+  match app-id="osu!"
+  match app-id="sober"
+  match app-id="pcsx2-qt"
+  match app-id="gamescope"
+
+  open-on-workspace "games"
+}
+
+window-rule {
+  match app-id="^steam_app_"
+  open-fullscreen true
+  open-focused true
+}
+
+window-rule {
+  match app-id="steam"
+  open-maximized true
+}
+
+window-rule {
+  match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+  default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+
+window-rule {
+  match app-id="gamescope"
+  open-fullscreen true
+}

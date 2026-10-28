@@ -1,0 +1,119 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "disabled_providers": ["openai"],
+  "mcp": {
+    "canva": {
+      "type": "remote",
+      "url": "https://mcp.canva.com/mcp",
+      "enabled": true,
+      "oauth": {}
+    },
+    "overclick": {
+      "type": "remote",
+      "url": "http://localhost:3000/mcp",
+      "enabled": true,
+      "headers": {
+        "Authorization": "{env:OPENCODE_BRIDGE_TOKEN}"
+      }
+    },
+    "umbrel": {
+      "type": "remote",
+      "url": "http://192.168.3.127/mcp",
+      "enabled": true,
+      "headers": {
+        "Authorization": "{file:~/.config/opencode/secrets/umbrel-mcp-authorization}"
+      }
+    }
+  },
+  "model": "omniroute/codex/gpt-5.6-sol",
+  "small_model": "omniroute/codex/gpt-5.6-sol-low",
+  "provider": {
+    "omniroute": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "OmniRoute",
+      "options": {
+        "baseURL": "http://localhost:20128/v1",
+        "apiKey": "omniroute"
+      },
+      "models": {
+        "CODEZONE": {
+          "name": "CODEZONE",
+          "tool_call": true
+        },
+        "codex/gpt-5.6-sol": {
+          "name": "GPT 5.6 Sol (Codex)",
+          "tool_call": true
+        },
+        "codex/gpt-5.6-sol-low": {
+          "name": "GPT 5.6 Sol Low (Codex)",
+          "tool_call": true
+        },
+        "kiro/claude-sonnet-4.5": {
+          "name": "Claude Sonnet 4.5 (Kiro)",
+          "tool_call": true
+        },
+        "kiro/claude-haiku-4.5": {
+          "name": "Claude Haiku 4.5 (Kiro)",
+          "tool_call": true
+        },
+        "agentrouter/claude-opus-4-8": {
+          "name": "Claude Opus 4.8 (AgentRouter)",
+          "tool_call": true
+        },
+        "agentrouter/gpt-5.6-sol": {
+          "name": "GPT 5.6 Sol (AgentRouter)",
+          "tool_call": true
+        },
+        "chatgpt-web/gpt-5.6-pro": {
+          "name": "GPT 5.6 Pro (ChatGPT Web)",
+          "tool_call": false
+        },
+        "nvidia/openai/gpt-oss-120b": {
+          "name": "GPT OSS 120B (NVIDIA)",
+          "tool_call": true
+        },
+        "nvidia/nvidia/nemotron-3-super-120b-a12b": {
+          "name": "Nemotron 3 Super 120B (NVIDIA)",
+          "tool_call": true
+        },
+        "opencode/claude-sonnet-4-6": {
+          "name": "Claude Sonnet 4.6 (OpenCode)",
+          "tool_call": true
+        },
+        "opencode/big-pickle": {
+          "name": "Big Pickle (OpenCode)",
+          "tool_call": true
+        },
+        "openrouter/stealth/ox-alpha-high": {
+          "name": "Ox Alpha High (OpenRouter)",
+          "tool_call": true
+        },
+        "openrouter/thinkingmachines/inkling-small:free-high": {
+          "name": "Inkling Small Free (OpenRouter)",
+          "tool_call": true
+        },
+        "auto/best-free": {
+          "name": "Best Free"
+        },
+        "auto/best-coding": {
+          "name": "Best Coding"
+        },
+        "auto/best-fast": {
+          "name": "Best Fast"
+        },
+        "auto/best-reasoning": {
+          "name": "Best Reasoning"
+        },
+        "auto/cheap": {
+          "name": "Cheapest"
+        },
+        "auto/claude-opus": {
+          "name": "Claude Opus"
+        },
+        "auto/claude-sonnet": {
+          "name": "Claude Sonnet"
+        }
+      }
+    }
+  }
+}

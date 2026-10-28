@@ -1,0 +1,4 @@
+window-rule {
+  match app-id=r#"^org\.gnome\.Nautilus$"#
+  open-on-workspace "files"
+}

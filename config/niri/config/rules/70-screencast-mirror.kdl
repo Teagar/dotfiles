@@ -1,0 +1,22 @@
+window-rule {
+  match is-window-cast-target=true
+  border {
+    on
+    width 2
+    active-color "#e100ff"
+    inactive-color "#e100ff"
+  }
+}
+
+window-rule {
+  match app-id=r#"^at\.yrlf\.wl_mirror$"#
+
+  border {
+    on
+    width 2
+    active-gradient from="#e5989b" to="#e100ff" angle=45 relative-to="workspace-view" in="oklch longer hue"
+    inactive-gradient from="#e5989b" to="#e100ff" angle=45 relative-to="workspace-view"
+  }
+
+  open-on-workspace "screencast"
+}

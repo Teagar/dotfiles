@@ -1,0 +1,33 @@
+input {
+    keyboard {
+        xkb {
+            // For more information, see xkeyboard-config(7).
+            layout "br,us"
+            variant "abnt2,intl"
+            // variant "altgr-intl"
+            // options "grp:alt_shift_toggle"
+            // localectl set-x11-keymap.
+        }
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+    }
+
+    trackpoint {
+    }
+
+    // warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+gestures {
+    hot-corners {
+        off
+    }
+}

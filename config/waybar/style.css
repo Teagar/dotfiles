@@ -1,0 +1,53 @@
+  * {
+      border: none;
+      border-radius: 0;
+      font-family: "DejaVu Sans", sans-serif;
+      font-size: 13px;
+      min-height: 0;
+  }
+
+  window#waybar {
+      background: rgba(17, 17, 17, 0.94);
+      color: #dddddd;
+  }
+
+  #workspaces {
+      margin-left: 10px;
+  }
+
+  #workspaces button {
+      padding: 0 7px;
+      color: #777777;
+      background: transparent;
+  }
+
+  #workspaces button.active {
+      color: #ffffff;
+  }
+
+  #workspaces button:hover {
+      color: #ffffff;
+      background: #292929;
+  }
+
+  #window {
+      margin-left: 10px;
+      color: #999999;
+  }
+
+  #clock {
+      color: #ffffff;
+      font-weight: bold;
+  }
+
+  #network,
+  #pulseaudio,
+  #battery,
+  #tray {
+      padding: 0 8px;
+      color: #cccccc;
+  }
+
+  #tray {
+      margin-right: 8px;
+  }

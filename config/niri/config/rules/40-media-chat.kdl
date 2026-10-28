@@ -1,0 +1,15 @@
+window-rule {
+  match app-id="Spotify"
+  open-on-workspace "media"
+}
+
+window-rule {
+  match app-id="discord"
+  open-on-workspace "chat"
+  open-maximized true
+}
+
+window-rule {
+  match app-id="pavucontrol"
+  open-floating true
+}

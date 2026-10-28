@@ -1,0 +1,84 @@
+[colors]
+ansi = [
+    "#000000",
+    "#c75c5c",
+    "#6e9f45",
+    "#c2a24a",
+    "#5a82a8",
+    "#8e70a6",
+    "#5f9292",
+    "#c8c8c8",
+]
+background = "#000000"
+brights = [
+    "#555555",
+    "#d87575",
+    "#86b55d",
+    "#d1b663",
+    "#7099bf",
+    "#a286b8",
+    "#76a9a9",
+    "#e0e0e0",
+]
+compose_cursor = "#7b4baf"
+cursor_bg = "#7b4baf"
+cursor_border = "#7b4baf"
+cursor_fg = "#000000"
+foreground = "#c8c8c8"
+scrollbar_thumb = "#3b2d49"
+selection_bg = "#3b2d49"
+selection_fg = "#e6e6e6"
+split = "#555555"
+visual_bell = "#000000"
+
+[colors.indexed]
+16 = "#6e9f45"
+17 = "#7b4baf"
+
+[colors.tab_bar]
+background = "#000000"
+inactive_tab_edge = "#3b2d49"
+
+[colors.tab_bar.active_tab]
+bg_color = "#7b4baf"
+fg_color = "#e6e6e6"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#000000"
+fg_color = "#c8c8c8"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#000000"
+fg_color = "#c8c8c8"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.new_tab]
+bg_color = "#3b2d49"
+fg_color = "#c8c8c8"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#555555"
+fg_color = "#c8c8c8"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[metadata]
+author = "Noctalia"
+name = "Noctalia"

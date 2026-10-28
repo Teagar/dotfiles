@@ -1,0 +1,25 @@
+window-rule {
+  match app-id=r#"^org\.wezfurlong\.wezterm$"#
+  default-column-width {}
+}
+
+window-rule {
+  match app-id=r#"^kitty$"#
+  open-focused true
+  open-on-workspace "workflow"
+  draw-border-with-background false
+}
+
+window-rule {
+  match app-id=r#"^floating-terminal$"#
+  open-focused true
+  draw-border-with-background false
+  open-floating true
+}
+
+window-rule {
+  match app-id=r#"^code$"#
+  open-focused true
+  open-on-workspace "workflow"
+  draw-border-with-background false
+}

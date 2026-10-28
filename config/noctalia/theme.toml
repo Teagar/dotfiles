@@ -1,0 +1,4 @@
+[theme]
+mode = "dark"
+source = "custom"
+custom_palette = "EvangelionTheme"

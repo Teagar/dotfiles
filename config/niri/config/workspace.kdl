@@ -1,0 +1,31 @@
+workspace "workflow" {
+    open-on-output "eDP-1"
+}
+
+workspace "browser" {
+    open-on-output "eDP-1"
+}
+
+workspace "games" {
+    open-on-output "eDP-1"
+}
+
+workspace "chat" {
+    open-on-output "eDP-1"
+}
+
+workspace "files" {
+    open-on-output "eDP-1"
+}
+
+workspace "media" {
+    open-on-output "eDP-1"
+}
+
+workspace "virtual" {
+    open-on-output "eDP-1"
+}
+
+workspace "screencast" {
+    open-on-output "eDP-1"
+}

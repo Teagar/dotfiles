@@ -1,0 +1,50 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 8,
+
+    "modules-left": ["niri/workspaces", "niri/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "pulseaudio", "battery", "tray"],
+
+    "niri/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "active": "●",
+        "default": "○"
+      }
+    },
+
+    "niri/window": {
+      "max-length": 45
+    },
+
+    "clock": {
+      "format": "{:%H:%M}",
+      "format-alt": "{:%d/%m/%Y}"
+    },
+
+    "network": {
+      "format-wifi": "Wi-Fi {signalStrength}%",
+      "format-ethernet": "Rede",
+      "format-disconnected": "Sem rede",
+      "tooltip-format": "{ifname}: {ipaddr}"
+    },
+
+    "pulseaudio": {
+      "format": "Som {volume}%",
+      "format-muted": "Mudo",
+      "on-click": "pavucontrol"
+    },
+
+    "battery": {
+      "format": "Bat {capacity}%",
+      "format-charging": "Bat {capacity}% +",
+      "interval": 30
+    },
+
+    "tray": {
+      "spacing": 10
+    }
+  }

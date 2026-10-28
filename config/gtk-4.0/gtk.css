@@ -1,0 +1,192 @@
+@import url("noctalia.css");
+
+/* Desabilita alterações visuais quando a janela perde o foco (modo inativo) */
+*:backdrop {
+    opacity: 1;
+}
+
+headerbar:backdrop,
+.titlebar:backdrop,
+window:backdrop,
+windowdecorations:backdrop,
+placessidebar:backdrop,
+scrolledwindow:backdrop,
+entry:backdrop,
+button:backdrop {
+    opacity: 1;
+}
+
+/* Tema Evangelion discreto */
+@define-color window_bg_color #121015;
+@define-color view_bg_color #18141d;
+@define-color headerbar_bg_color #121015;
+
+@define-color sidebar_bg_color #211a29;
+@define-color sidebar_backdrop_color #211a29;
+@define-color sidebar_border_color #392d45;
+
+@define-color window_fg_color #e8e1ed;
+@define-color view_fg_color #e8e1ed;
+@define-color headerbar_fg_color #e8e1ed;
+@define-color sidebar_fg_color #d5cadc;
+
+@define-color accent_color #9a78ad;
+@define-color accent_bg_color #3a2a44;
+@define-color accent_fg_color #d9d1de;
+
+@define-color theme_selected_bg_color #3a2a44;
+@define-color theme_selected_fg_color #d9d1de;
+
+@define-color headerbar_backdrop_color #121015;
+@define-color theme_unfocused_bg_color #121015;
+@define-color theme_unfocused_base_color #18141d;
+
+/* Evita a alteração quando perde o foco. */
+@define-color theme_unfocused_selected_bg_color #3a2a44;
+@define-color theme_unfocused_selected_fg_color #d9d1de;
+
+/* Compatibilidade com versões recentes do Libadwaita */
+:root {
+    --window-bg-color: #121015;
+    --view-bg-color: #18141d;
+    --headerbar-bg-color: #121015;
+
+    --sidebar-bg-color: #211a29;
+    --sidebar-backdrop-color: #211a29;
+    --sidebar-border-color: #392d45;
+
+    --window-fg-color: #e8e1ed;
+    --view-fg-color: #e8e1ed;
+    --headerbar-fg-color: #e8e1ed;
+    --sidebar-fg-color: #d5cadc;
+
+    --accent-color: #9a78ad;
+    --accent-bg-color: #3a2a44;
+    --accent-fg-color: #d9d1de;
+}
+
+/* Nautilus: mesma aparência com e sem foco */
+.nautilus-window {
+    --window-bg-color: #0b0a0d;
+    --window-fg-color: #d0c6d8;
+    --view-bg-color: #0b0a0d;
+    --view-fg-color: #d0c6d8;
+    --headerbar-bg-color: #0b0a0d;
+    --headerbar-fg-color: #d0c6d8;
+
+    --sidebar-bg-color: #111111;
+    --sidebar-backdrop-color: #111111;
+    --sidebar-fg-color: #d0c6d8;
+
+    --accent-color: #9a78ad;
+    --accent-bg-color: #3a2a44;
+    --accent-fg-color: #d9d1de;
+
+    background-color: #0b0a0d;
+    color: #d0c6d8;
+}
+
+.nautilus-window,
+.nautilus-window:backdrop,
+.nautilus-window .view,
+.nautilus-window .view:backdrop,
+.nautilus-window scrolledwindow,
+.nautilus-window scrolledwindow:backdrop {
+    background-color: #0b0a0d;
+    background-image: none;
+    color: #d0c6d8;
+    opacity: 1;
+}
+
+/* Barra superior */
+.nautilus-window headerbar,
+.nautilus-window headerbar:backdrop {
+    background-color: #0b0a0d;
+    background-image: none;
+    color: #d0c6d8;
+    opacity: 1;
+}
+
+/* Barra lateral */
+.nautilus-window placessidebar,
+.nautilus-window placessidebar:backdrop,
+.nautilus-window .sidebar-pane,
+.nautilus-window .sidebar-pane:backdrop {
+    background-color: #111111;
+    background-image: none;
+    color: #d0c6d8;
+    opacity: 1;
+}
+
+/* Seleção discreta na visualização em lista */
+.nautilus-window columnview row:selected,
+.nautilus-window columnview row:selected:backdrop {
+    background-color: #302638;
+    background-image: none;
+    color: #d9d1de;
+    box-shadow: none;
+    opacity: 1;
+}
+
+/* Categoria selecionada na barra lateral */
+.nautilus-window placessidebar row:selected,
+.nautilus-window:backdrop placessidebar row:selected {
+    background-color: #7b12a2;
+    background-image: none;
+    color: #d9d1de;
+    box-shadow: none;
+    opacity: 1;
+}
+
+/* Hover discreto na lista e nas categorias laterais */
+.nautilus-window columnview row:hover:not(:selected) {
+    background-color: #211b25;
+}
+
+.nautilus-window placessidebar row:hover:not(:selected) {
+    background-color: #1d1921;
+}
+
+/*
+ * Grade de arquivos e pastas:
+ * itens normais usam o fundo preto; selecionados usam cinza discreto.
+ */
+.nautilus-window gridview > child,
+.nautilus-window gridview > child:disabled,
+.nautilus-window gridview > child:backdrop,
+.nautilus-window:backdrop gridview > child {
+    background-color: #0b0a0d;
+    background-image: none;
+    color: #d0c6d8;
+    box-shadow: none;
+    opacity: 1;
+}
+
+/* Hover e seleção visíveis, iguais com a janela focada ou desfocada */
+.nautilus-window gridview > child:hover,
+.nautilus-window gridview > child:hover:backdrop,
+.nautilus-window gridview > child:selected,
+.nautilus-window gridview > child:selected:hover,
+.nautilus-window gridview > child:selected:backdrop,
+.nautilus-window gridview > child:selected:disabled,
+.nautilus-window:backdrop gridview > child:hover,
+.nautilus-window:backdrop gridview > child:selected,
+.nautilus-window:backdrop gridview > child:selected:hover,
+.nautilus-window:backdrop gridview > child:selected:disabled {
+    background-color: #211b25;
+    background-image: none;
+    color: #d0c6d8;
+    box-shadow: none;
+    opacity: 1;
+}
+
+/* Textos sempre legíveis, inclusive com janela desfocada */
+.nautilus-window:backdrop label,
+.nautilus-window .view:backdrop label,
+.nautilus-window placessidebar:backdrop label,
+.nautilus-window gridview > child label,
+.nautilus-window gridview > child label:backdrop,
+.nautilus-window:backdrop gridview > child label {
+    color: #d0c6d8;
+    opacity: 1;
+}

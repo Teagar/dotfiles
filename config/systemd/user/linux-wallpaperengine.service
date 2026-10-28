@@ -1,0 +1,12 @@
+[Unit]
+Description=Linux Wallpaper Engine
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/gabiru/.local/bin/start-wallpaperengine.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=graphical-session.target
